@@ -201,18 +201,18 @@ footer .credit a:hover{color:#F6DDA2;text-decoration-color:currentColor}
 /* older browsers without overflow:clip - keep the header sticky */
 @supports not (overflow:clip){html{overflow-x:hidden}body{overflow-x:visible}}
 /* About paragraphs: justified (laptop + mobile, both languages) */
-.about-text p{text-align:justify;text-justify:inter-word;-webkit-hyphens:auto;hyphens:auto;overflow-wrap:break-word}
-html[lang="ta"] .about-text p{-webkit-hyphens:manual;hyphens:manual}
+html[lang="en"] .about-text p{text-align:justify;text-justify:inter-word;-webkit-hyphens:auto;hyphens:auto;overflow-wrap:break-word}
 /* Hero buttons: one consistent, centred layout on every phone/tablet width */
 @media (max-width:859px){
  .hero .btns{flex-direction:column;align-items:center;gap:.8rem}
  .hero .btns .btn{width:min(100%,300px)}
 }
 @media (max-width:560px){
- .about-text{padding:1.5rem 1.1rem}
- .about-text p{font-size:1rem;line-height:1.7}
- html[lang="ta"] .about-text p{font-size:.97rem;line-height:1.75}
+ html[lang="en"] .about-text{padding:1.5rem 1.1rem}
+ html[lang="en"] .about-text p{font-size:1rem;line-height:1.7}
 }
+/* phone numbers: one below the other, small gap */
+.row span.phones a{display:block;min-height:0;padding:.12rem 0;line-height:1.45}
 </style>
 </head>
 <body>
@@ -312,7 +312,7 @@ html[lang="ta"] .about-text p{-webkit-hyphens:manual;hyphens:manual}
    <div class="box">
      <div class="details">
        <div class="row"><i><svg aria-hidden="true"><use href="#pin"/></svg></i><div><b data-i18n="addrL">Address</b><span data-i18n="addrV">Shri Murugan Illam, No 12, Thiruvallur Street,<br>Kurinchi Nagar, West Tambaram,<br>Chennai – 600045</span></div></div>
-       <div class="row"><i><svg aria-hidden="true"><use href="#phone"/></svg></i><div><b data-i18n="phoneL">Phone</b><span><a href="tel:+919444245896">+91 94442 45896</a><br><a href="tel:+919884318518">+91 98843 18518</a></span></div></div>
+       <div class="row"><i><svg aria-hidden="true"><use href="#phone"/></svg></i><div><b data-i18n="phoneL">Phone</b><span class="phones"><a href="tel:+919444245896">+91 94442 45896</a><a href="tel:+919884318518">+91 98843 18518</a></span></div></div>
        <a class="row" href="https://wa.me/919884318518?text=%E0%AE%8E%E0%AE%99%E0%AF%8D%E0%AE%95%E0%AE%B3%E0%AF%81%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AF%81%20%E0%AE%9C%E0%AE%BE%E0%AE%A4%E0%AE%95%E0%AE%AE%E0%AF%8D%20%E0%AE%AA%E0%AE%BE%E0%AE%B0%E0%AF%8D%E0%AE%95%E0%AF%8D%E0%AE%95%20%E0%AE%B5%E0%AF%87%E0%AE%A3%E0%AF%8D%E0%AE%9F%E0%AF%81%E0%AE%AE%E0%AF%8D" target="_blank" rel="noopener"><i><svg aria-hidden="true" style="fill:currentColor"><use href="#wa"/></svg></i><div><b data-i18n="wa">WhatsApp</b><span>+91 98843 18518</span></div></a>
        <div class="row"><i><svg aria-hidden="true"><use href="#clock"/></svg></i><div><b data-i18n="timeL">Timings</b><span data-i18n="timeV">All Days: 10:00 AM – 5:00 PM</span></div></div>
        <div class="btns"><a class="btn btn-line" href="https://maps.app.goo.gl/iCMdJYomTvXCUAs98" target="_blank" rel="noopener" data-i18n="dir">Get directions</a></div>
@@ -324,21 +324,9 @@ html[lang="ta"] .about-text p{-webkit-hyphens:manual;hyphens:manual}
 </main>
 
 <footer>
-  <span class="ta" data-i18n="bless">
-    May God's grace bring prosperity and well-being to all.
-  </span>
-
-  © <span id="y"></span>
-  <span class="nm-en">P.M. Nithi Astrology</span>
-  <span class="nm-ta" lang="ta">பா.மு. நிதி ஜோதிடம்</span>
-
-  <p class="credit">
-    <span data-i18n="credit">Created by</span>
-    <b>
-      <span class="nm-en">Rajeshwar Nithi</span>
-      <span class="nm-ta" lang="ta">ராஜேஷ்வர் நிதி</span>
-    </b>
-  </p>
+ <span class="ta" data-i18n="bless">May God's grace bring prosperity and well-being to all.</span>
+ © <span id="y"></span> <span class="nm-en">P.M. Nithi Astrology</span><span class="nm-ta" lang="ta">பா.மு. நிதி ஜோதிடம்</span>
+ <p class="credit"><span data-i18n="credit">Created by</span> <b id="creditName">Rajeshwar Nithi</b></p>
 </footer>
 </div>
 
