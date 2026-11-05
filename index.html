@@ -13,8 +13,8 @@
     After hosting, replace YOUR-DOMAIN.com with the real domain and upload share.jpg (1200 x 630) with the astrologer's photo + name. -->
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ta_IN">
-<meta property="og:site_name" content="P.M. Nithi Astrology | பா.மு. நிதி">
-<meta property="og:title" content="பா.மு. நிதி – P.M. Nithi Astrology">
+<meta property="og:site_name" content="P.M. Nithi Astrology | பா.மு. நிதி ஜோதிடம்">
+<meta property="og:title" content="பா.மு. நிதி ஜோதிடம் – P.M. Nithi Astrology">
 <meta property="og:description" content="அனுபவமிக்க ஜாதக நிபுணர் – மேற்கு தாம்பரம், சென்னை. ஆலோசனை தமிழில், நேரிலும் ஆன்லைனிலும்.">
 <meta property="og:image" content="https://YOUR-DOMAIN.com/share.jpg">
 <meta property="og:image:width" content="1200">
@@ -198,6 +198,21 @@ footer .credit{margin:.9rem 0 0;font-size:.82rem;color:var(--soft);opacity:.85}
 footer .credit b{color:var(--gold-soft);font-weight:500}
 footer .credit a{color:var(--gold-soft);font-weight:500;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(217,178,106,.5);padding:.35rem .1rem}
 footer .credit a:hover{color:#F6DDA2;text-decoration-color:currentColor}
+/* older browsers without overflow:clip - keep the header sticky */
+@supports not (overflow:clip){html{overflow-x:hidden}body{overflow-x:visible}}
+/* About paragraphs: justified (laptop + mobile, both languages) */
+.about-text p{text-align:justify;text-justify:inter-word;-webkit-hyphens:auto;hyphens:auto;overflow-wrap:break-word}
+html[lang="ta"] .about-text p{-webkit-hyphens:manual;hyphens:manual}
+/* Hero buttons: one consistent, centred layout on every phone/tablet width */
+@media (max-width:859px){
+ .hero .btns{flex-direction:column;align-items:center;gap:.8rem}
+ .hero .btns .btn{width:min(100%,300px)}
+}
+@media (max-width:560px){
+ .about-text{padding:1.5rem 1.1rem}
+ .about-text p{font-size:1rem;line-height:1.7}
+ html[lang="ta"] .about-text p{font-size:.97rem;line-height:1.75}
+}
 </style>
 </head>
 <body>
@@ -222,7 +237,7 @@ footer .credit a:hover{color:#F6DDA2;text-decoration-color:currentColor}
 <div class="site">
 <header>
  <div class="wrap nav">
-   <a class="logo" href="#top"><i aria-hidden="true">ॐ</i><span class="logo-t"><b class="nm-en">P.M. Nithi Astrology</b><em class="nm-ta" lang="ta">பா.மு. நிதி</em></span></a>
+   <a class="logo" href="#top"><i aria-hidden="true">ॐ</i><span class="logo-t"><b class="nm-en">P.M. Nithi Astrology</b><em class="nm-ta" lang="ta">பா.மு. நிதி ஜோதிடம்</em></span></a>
    <nav aria-label="Main" data-i18n-aria="navLabel"><a href="#about" data-i18n="navAbout">About</a><a href="#services" data-i18n="navServices">Services</a><a href="#contact" data-i18n="navLocation">Location</a></nav>
    <div class="lang" role="group" aria-label="Language" data-i18n-aria="langLabel"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="ta" aria-pressed="false" lang="ta">தமிழ்</button></div>
    <a class="btn btn-main" href="tel:+919444245896"><svg aria-hidden="true"><use href="#phone"/></svg><span data-i18n="call">Call</span></a>
@@ -234,12 +249,12 @@ footer .credit a:hover{color:#F6DDA2;text-decoration-color:currentColor}
  <div class="wrap">
    <div class="hero-copy">
      <p class="hello" data-i18n="hello">Welcome</p>
-     <h1><span class="nm-en">P.M. Nithi Astrology</span><span class="nm-ta" lang="ta">பா.மு. நிதி</span></h1>
+     <h1><span class="nm-en">P.M. Nithi Astrology</span><span class="nm-ta" lang="ta">பா.மு. நிதி ஜோதிடம்</span></h1>
      <p class="ta" data-i18n="sub">Experienced Horoscope Specialist</p>
      <p class="lead" data-i18n="lead">Experienced in providing insightful astrological predictions and guidance based on individual birth charts. Personal consultations are available in Tamil, both online and in person at our office in Tambaram.</p>
      <div class="btns">
        <a class="btn btn-main" href="tel:+919444245896"><svg aria-hidden="true"><use href="#phone"/></svg><span data-i18n="callNow">Call now</span></a>
-       <a class="btn btn-wa" id="waHero" href="https://wa.me/919884318518?text=%E0%AE%B5%E0%AE%A3%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AE%AE%E0%AF%8D%2C%20%E0%AE%86%E0%AE%B2%E0%AF%8B%E0%AE%9A%E0%AE%A9%E0%AF%88%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AF%81%20%E0%AE%AE%E0%AF%81%E0%AE%A9%E0%AF%8D%E0%AE%AA%E0%AE%A4%E0%AE%BF%E0%AE%B5%E0%AF%81%20%E0%AE%9A%E0%AF%86%E0%AE%AF%E0%AF%8D%E0%AE%AF%20%E0%AE%B5%E0%AE%BF%E0%AE%B0%E0%AF%81%E0%AE%AE%E0%AF%8D%E0%AE%AA%E0%AF%81%E0%AE%95%E0%AE%BF%E0%AE%B1%E0%AF%87%E0%AE%A9%E0%AF%8D." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg><span data-i18n="wa">WhatsApp</span></a>
+       <a class="btn btn-wa" id="waHero" href="https://wa.me/919884318518?text=%E0%AE%8E%E0%AE%99%E0%AF%8D%E0%AE%95%E0%AE%B3%E0%AF%81%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AF%81%20%E0%AE%9C%E0%AE%BE%E0%AE%A4%E0%AE%95%E0%AE%AE%E0%AF%8D%20%E0%AE%AA%E0%AE%BE%E0%AE%B0%E0%AF%8D%E0%AE%95%E0%AF%8D%E0%AE%95%20%E0%AE%B5%E0%AF%87%E0%AE%A3%E0%AF%8D%E0%AE%9F%E0%AF%81%E0%AE%AE%E0%AF%8D" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg><span data-i18n="wa">WhatsApp</span></a>
      </div>
    </div>
    <div class="photo" id="photo">
@@ -264,7 +279,7 @@ footer .credit a:hover{color:#F6DDA2;text-decoration-color:currentColor}
  <div class="wrap">
    <div class="about-text">
      <div class="head"><h2 data-i18n="aboutH">About me</h2></div>
-     <p data-i18n="aboutP1">I am PM Nithi, M.A., an astrologer with over 40 years of experience, dedicated to guiding people through traditional astrological knowledge. Over the years, I have had the privilege of serving millions of happy clients, helping them find clarity, confidence and direction in various aspects of life.</p>
+     <p data-i18n="aboutP1">I am P.M. Nithi, M.A., an astrologer with over 40 years of experience, dedicated to guiding people through traditional astrological knowledge. Over the years, I have had the privilege of serving millions of happy clients, helping them find clarity, confidence and direction in various aspects of life.</p>
      <p data-i18n="aboutP2">I proudly carry forward the legacy of my late father, Pauldurai Nadar, a renowned astrologer from Sithankudierupu, Thoothukudi, with over 70 years of experience. From an early age, I had the opportunity to learn directly from him, gaining in-depth knowledge of astrology, ranging from its fundamental principles and traditional methodologies to advanced calculations, planetary interpretations, and predictive techniques. His teachings continue to inspire my journey in preserving our family’s rich astrological tradition.</p>
    </div>
    <ul class="points">
@@ -298,7 +313,7 @@ footer .credit a:hover{color:#F6DDA2;text-decoration-color:currentColor}
      <div class="details">
        <div class="row"><i><svg aria-hidden="true"><use href="#pin"/></svg></i><div><b data-i18n="addrL">Address</b><span data-i18n="addrV">Shri Murugan Illam, No 12, Thiruvallur Street,<br>Kurinchi Nagar, West Tambaram,<br>Chennai – 600045</span></div></div>
        <div class="row"><i><svg aria-hidden="true"><use href="#phone"/></svg></i><div><b data-i18n="phoneL">Phone</b><span><a href="tel:+919444245896">+91 94442 45896</a><br><a href="tel:+919884318518">+91 98843 18518</a></span></div></div>
-       <a class="row" href="https://wa.me/919884318518" target="_blank" rel="noopener"><i><svg aria-hidden="true" style="fill:currentColor"><use href="#wa"/></svg></i><div><b data-i18n="wa">WhatsApp</b><span>+91 98843 18518</span></div></a>
+       <a class="row" href="https://wa.me/919884318518?text=%E0%AE%8E%E0%AE%99%E0%AF%8D%E0%AE%95%E0%AE%B3%E0%AF%81%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AF%81%20%E0%AE%9C%E0%AE%BE%E0%AE%A4%E0%AE%95%E0%AE%AE%E0%AF%8D%20%E0%AE%AA%E0%AE%BE%E0%AE%B0%E0%AF%8D%E0%AE%95%E0%AF%8D%E0%AE%95%20%E0%AE%B5%E0%AF%87%E0%AE%A3%E0%AF%8D%E0%AE%9F%E0%AF%81%E0%AE%AE%E0%AF%8D" target="_blank" rel="noopener"><i><svg aria-hidden="true" style="fill:currentColor"><use href="#wa"/></svg></i><div><b data-i18n="wa">WhatsApp</b><span>+91 98843 18518</span></div></a>
        <div class="row"><i><svg aria-hidden="true"><use href="#clock"/></svg></i><div><b data-i18n="timeL">Timings</b><span data-i18n="timeV">All Days: 10:00 AM – 5:00 PM</span></div></div>
        <div class="btns"><a class="btn btn-line" href="https://maps.app.goo.gl/iCMdJYomTvXCUAs98" target="_blank" rel="noopener" data-i18n="dir">Get directions</a></div>
      </div>
@@ -310,19 +325,13 @@ footer .credit a:hover{color:#F6DDA2;text-decoration-color:currentColor}
 
 <footer>
  <span class="ta" data-i18n="bless">May God's grace bring prosperity and well-being to all.</span>
- © <span id="y"></span> <span class="nm-en">P.M. Nithi Astrology</span><span class="nm-ta" lang="ta">பா.மு. நிதி</span>
- <p class="credit">
-   <span data-i18n="credit">Created by</span>
-   <!-- OPTION 1 (active): your name as a clickable link. Replace [Your Name] and the web address. -->
-   <a id="creditName" href="https://YOUR-LINK-HERE.com" target="_blank" rel="noopener">[Your Name]</a>
-   <!-- OPTION 2: just your name, no link. To use it: delete Option 1 above, then remove the comment marks around the next line. -->
-   <!-- <b id="creditName">[Your Name]</b> -->
- </p>
+ © <span id="y"></span> <span class="nm-en">P.M. Nithi Astrology</span><span class="nm-ta" lang="ta">பா.மு. நிதி ஜோதிடம்</span>
+ <p class="credit"><span data-i18n="credit">Created by</span> <b id="creditName">Rajeshwar Nithi</b></p>
 </footer>
 </div>
 
-<a class="fab" href="https://wa.me/919884318518" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" data-i18n-aria="fabLabel"><svg aria-hidden="true"><use href="#wa"/></svg></a>
-<nav class="callbar" aria-label="Quick contact" data-i18n-aria="quickLabel"><a href="tel:+919444245896" data-i18n="callNow">Call now</a><a href="https://wa.me/919884318518" target="_blank" rel="noopener" data-i18n="wa">WhatsApp</a></nav>
+<a class="fab" href="https://wa.me/919884318518?text=%E0%AE%8E%E0%AE%99%E0%AF%8D%E0%AE%95%E0%AE%B3%E0%AF%81%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AF%81%20%E0%AE%9C%E0%AE%BE%E0%AE%A4%E0%AE%95%E0%AE%AE%E0%AF%8D%20%E0%AE%AA%E0%AE%BE%E0%AE%B0%E0%AF%8D%E0%AE%95%E0%AF%8D%E0%AE%95%20%E0%AE%B5%E0%AF%87%E0%AE%A3%E0%AF%8D%E0%AE%9F%E0%AF%81%E0%AE%AE%E0%AF%8D" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" data-i18n-aria="fabLabel"><svg aria-hidden="true"><use href="#wa"/></svg></a>
+<nav class="callbar" aria-label="Quick contact" data-i18n-aria="quickLabel"><a href="tel:+919444245896" data-i18n="callNow">Call now</a><a href="https://wa.me/919884318518?text=%E0%AE%8E%E0%AE%99%E0%AF%8D%E0%AE%95%E0%AE%B3%E0%AF%81%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AF%81%20%E0%AE%9C%E0%AE%BE%E0%AE%A4%E0%AE%95%E0%AE%AE%E0%AF%8D%20%E0%AE%AA%E0%AE%BE%E0%AE%B0%E0%AF%8D%E0%AE%95%E0%AF%8D%E0%AE%95%20%E0%AE%B5%E0%AF%87%E0%AE%A3%E0%AF%8D%E0%AE%9F%E0%AF%81%E0%AE%AE%E0%AF%8D" target="_blank" rel="noopener" data-i18n="wa">WhatsApp</a></nav>
 
 <script>
 document.getElementById("y").textContent = new Date().getFullYear();
@@ -355,7 +364,7 @@ document.getElementById("y").textContent = new Date().getFullYear();
      call: "Call", callNow: "Call now", wa: "WhatsApp",
      hello: "Welcome", sub: "Experienced Horoscope Specialist",
      lead: "Experienced in providing insightful astrological predictions and guidance based on individual birth charts. Personal consultations are available in Tamil, both online and in person at our office in Tambaram.",
-     waText: "வணக்கம், ஆலோசனைக்கு முன்பதிவு செய்ய விரும்புகிறேன்.",
+     waText: "எங்களுக்கு ஜாதகம் பார்க்க வேண்டும்",
      photoAlt: "P.M. Nithi, Experienced Horoscope Specialist", years: "years of practice",
      f1t: "Consultations in Tamil", f1d: "Horoscope books and written predictions in Tamil",
      f2t: "In person & online", f2d: "Tambaram office, phone or video",
@@ -391,7 +400,7 @@ document.getElementById("y").textContent = new Date().getFullYear();
      call: "அழைக்க", callNow: "இப்போதே அழைக்கவும்", wa: "வாட்ஸ்அப்",
      hello: "அன்புடன் வரவேற்கிறோம்", sub: "அனுபவமிக்க ஜாதக நிபுணர்",
      lead: "ஒவ்வொருவரின் பிறப்பு ஜாதகத்தின் அடிப்படையில் தெளிவான ஜோதிடப் பலன்களையும் வழிகாட்டுதலையும் வழங்குவதில் அனுபவம் பெற்றவர். தனிப்பட்ட ஆலோசனைகள் தமிழில், ஆன்லைனிலும் தாம்பரத்திலுள்ள எங்கள் அலுவலகத்தில் நேரிலும் வழங்கப்படுகின்றன.",
-     waText: "வணக்கம், ஆலோசனைக்கு முன்பதிவு செய்ய விரும்புகிறேன்.",
+     waText: "எங்களுக்கு ஜாதகம் பார்க்க வேண்டும்",
      photoAlt: "பா.மு. நிதி, அனுபவமிக்க ஜாதக நிபுணர்", years: "ஆண்டுகள் அனுபவம்",
      f1t: "ஆலோசனை தமிழில்", f1d: "ஜாதகப் புத்தகங்கள் மற்றும் எழுத்துப் பலன்கள் தமிழில்",
      f2t: "நேரிலும் ஆன்லைனிலும்", f2d: "தாம்பரம் அலுவலகம், தொலைபேசி அல்லது வீடியோ",
@@ -434,8 +443,7 @@ document.getElementById("y").textContent = new Date().getFullYear();
    document.querySelectorAll("[data-i18n-title]").forEach(el => { const s = t[el.dataset.i18nTitle]; if (s != null) el.setAttribute("title", s); });
    document.title = t.title;
    const md = document.querySelector('meta[name="description"]'); if (md) md.setAttribute("content", t.desc);
-   const wa = document.getElementById("waHero");
-   if (wa) wa.href = "https://wa.me/919884318518?text=" + encodeURIComponent(t.waText);
+   document.querySelectorAll('a[href^="https://wa.me/"]').forEach(a => { a.href = "https://wa.me/919884318518?text=" + encodeURIComponent(t.waText); });
    document.querySelectorAll(".lang button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
    if (typeof window.zodiacRelabel === "function") window.zodiacRelabel();
  }
