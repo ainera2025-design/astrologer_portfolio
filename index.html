@@ -213,6 +213,16 @@ html[lang="en"] .about-text p{text-align:justify;text-justify:inter-word;-webkit
 }
 /* phone numbers: one below the other, small gap */
 .row span.phones a{display:block;min-height:0;padding:.12rem 0;line-height:1.45}
+html[lang="ta"] .logo em{white-space:nowrap}
+@media (min-width:761px){.logo b{white-space:nowrap}}
+@media (min-width:761px) and (max-width:1000px){.nav{gap:1rem}}
+.hero-copy{min-width:0}
+.hero h1{min-width:0;max-width:100%}
+@media (max-width:340px){
+ html[lang="ta"] .logo em{white-space:normal;font-size:1rem}
+ .logo i{width:32px;height:32px}
+ .lang button{min-width:40px;padding:.3rem .55rem}
+}
 </style>
 </head>
 <body>
@@ -326,7 +336,7 @@ html[lang="en"] .about-text p{text-align:justify;text-justify:inter-word;-webkit
 <footer>
  <span class="ta" data-i18n="bless">May God's grace bring prosperity and well-being to all.</span>
  © <span id="y"></span> <span class="nm-en">P.M. Nithi Astrology</span><span class="nm-ta" lang="ta">பா.மு. நிதி ஜோதிடம்</span>
- <p class="credit"><span data-i18n="credit">Created by</span> <b id="creditName">Rajeshwar Nithi</b></p>
+ <p class="credit"><span data-i18n="credit">Created by</span> <b id="creditName" data-i18n="creditName">Rajeshwar Nithi</b></p>
 </footer>
 </div>
 
@@ -389,7 +399,7 @@ document.getElementById("y").textContent = new Date().getFullYear();
      phoneL: "Phone", timeL: "Timings", timeV: "All Days: 10:00 AM – 5:00 PM",
      dir: "Get directions", mapTitle: "Map showing P.M. Nithi Astrology location",
      bless: "May God's grace bring prosperity and well-being to all.",
-     credit: "Created by",
+     credit: "Created by", creditName: "Rajeshwar Nithi",
      fabLabel: "Chat on WhatsApp", quickLabel: "Quick contact"
    },
    ta: {
@@ -425,7 +435,7 @@ document.getElementById("y").textContent = new Date().getFullYear();
      phoneL: "தொலைபேசி", timeL: "நேரம்", timeV: "எல்லா நாட்களும்: காலை 10:00 – மாலை 5:00",
      dir: "வழி காட்டுதல்", mapTitle: "பா.மு. நிதி ஜோதிடம் இருப்பிடத்தைக் காட்டும் வரைபடம்",
      bless: "அனைவருக்கும் வளமும் நலமும் பெருக இறைவன் அருள் புரிவானாக",
-     credit: "உருவாக்கியவர்:",
+     credit: "உருவாக்கியவர்:", creditName: "ராஜேஷ்வர் நிதி",
      fabLabel: "வாட்ஸ்அப்பில் அரட்டையடிக்க", quickLabel: "விரைவு தொடர்பு"
    }
  };
@@ -446,7 +456,29 @@ document.getElementById("y").textContent = new Date().getFullYear();
    document.querySelectorAll('a[href^="https://wa.me/"]').forEach(a => { a.href = "https://wa.me/919884318518?text=" + encodeURIComponent(t.waText); });
    document.querySelectorAll(".lang button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
    if (typeof window.zodiacRelabel === "function") window.zodiacRelabel();
+   fitTitle();
  }
+
+ /* Keep the main title on ONE line: shrink the font only if it would not fit */
+ function fitTitle() {
+   const els = document.querySelectorAll(".hero h1 .nm-ta, .hero h1 .nm-en");
+   els.forEach(e => { e.style.fontSize = ""; e.style.whiteSpace = ""; });
+   const el = document.querySelector(document.documentElement.lang === "ta" ? ".hero h1 .nm-ta" : ".hero h1 .nm-en");
+   if (!el || !el.offsetParent) return;
+   el.style.whiteSpace = "nowrap";
+   let size = parseFloat(getComputedStyle(el).fontSize);
+   if (el.scrollWidth > el.clientWidth + 0.5) {
+     size = Math.max(16, Math.floor(size * el.clientWidth / el.scrollWidth));
+     el.style.fontSize = size + "px";
+     let guard = 40;
+     while (el.scrollWidth > el.clientWidth + 0.5 && size > 16 && guard--) { size -= 1; el.style.fontSize = size + "px"; }
+   }
+ }
+ let fitRaf = 0;
+ window.addEventListener("resize", () => { cancelAnimationFrame(fitRaf); fitRaf = requestAnimationFrame(fitTitle); });
+ window.addEventListener("orientationchange", () => setTimeout(fitTitle, 150));
+ window.addEventListener("load", fitTitle);
+ if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitTitle);
 
  document.querySelectorAll(".lang button").forEach(b => b.addEventListener("click", () => {
    const l = b.dataset.lang;
