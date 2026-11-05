@@ -136,7 +136,7 @@ a.row:hover b{text-decoration:underline}
 footer{background:rgba(5,3,2,.85);border-top:1px solid var(--line);color:var(--soft);text-align:center;padding:2.5rem 0 3rem;font-size:.9rem}
 footer .ta{display:block;color:var(--gold-soft);font-size:1.15rem;line-height:1.7;margin-bottom:.8rem}
 
-.fab{position:fixed;right:1rem;bottom:1rem;z-index:30;width:56px;height:56px;border-radius:50%;background:#1F7A4D;display:grid;place-items:center;box-shadow:0 8px 24px -6px rgba(0,0,0,.6)}
+.fab{position:fixed;left:1rem;bottom:1rem;z-index:30;width:56px;height:56px;border-radius:50%;background:#1F7A4D;display:grid;place-items:center;box-shadow:0 8px 24px -6px rgba(0,0,0,.6)}
 .fab svg{width:28px;height:28px;fill:#fff}
 .callbar{display:none}
 @media (max-width:760px){
@@ -194,6 +194,10 @@ html[lang="en"] .nm-ta,html[lang="ta"] .nm-en{display:none}
 .logo{display:inline-flex;align-items:center;min-height:44px}
 .row span a{padding:.4rem 0;min-height:40px;display:inline-flex;align-items:center}
 @media (max-width:380px){.lang button{min-height:40px}}
+footer .credit{margin:.9rem 0 0;font-size:.82rem;color:var(--soft);opacity:.85}
+footer .credit b{color:var(--gold-soft);font-weight:500}
+footer .credit a{color:var(--gold-soft);font-weight:500;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(217,178,106,.5);padding:.35rem .1rem}
+footer .credit a:hover{color:#F6DDA2;text-decoration-color:currentColor}
 </style>
 </head>
 <body>
@@ -307,6 +311,13 @@ html[lang="en"] .nm-ta,html[lang="ta"] .nm-en{display:none}
 <footer>
  <span class="ta" data-i18n="bless">May God's grace bring prosperity and well-being to all.</span>
  © <span id="y"></span> <span class="nm-en">P.M. Nithi Astrology</span><span class="nm-ta" lang="ta">பா.மு. நிதி</span>
+ <p class="credit">
+   <span data-i18n="credit">Created by</span>
+   <!-- OPTION 1 (active): your name as a clickable link. Replace [Your Name] and the web address. -->
+   <a id="creditName" href="https://YOUR-LINK-HERE.com" target="_blank" rel="noopener">[Your Name]</a>
+   <!-- OPTION 2: just your name, no link. To use it: delete Option 1 above, then remove the comment marks around the next line. -->
+   <!-- <b id="creditName">[Your Name]</b> -->
+ </p>
 </footer>
 </div>
 
@@ -369,6 +380,7 @@ document.getElementById("y").textContent = new Date().getFullYear();
      phoneL: "Phone", timeL: "Timings", timeV: "All Days: 10:00 AM – 5:00 PM",
      dir: "Get directions", mapTitle: "Map showing P.M. Nithi Astrology location",
      bless: "May God's grace bring prosperity and well-being to all.",
+     credit: "Created by",
      fabLabel: "Chat on WhatsApp", quickLabel: "Quick contact"
    },
    ta: {
@@ -404,6 +416,7 @@ document.getElementById("y").textContent = new Date().getFullYear();
      phoneL: "தொலைபேசி", timeL: "நேரம்", timeV: "எல்லா நாட்களும்: காலை 10:00 – மாலை 5:00",
      dir: "வழி காட்டுதல்", mapTitle: "பா.மு. நிதி ஜோதிடம் இருப்பிடத்தைக் காட்டும் வரைபடம்",
      bless: "அனைவருக்கும் வளமும் நலமும் பெருக இறைவன் அருள் புரிவானாக",
+     credit: "உருவாக்கியவர்:",
      fabLabel: "வாட்ஸ்அப்பில் அரட்டையடிக்க", quickLabel: "விரைவு தொடர்பு"
    }
  };
