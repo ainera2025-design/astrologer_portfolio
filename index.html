@@ -219,7 +219,7 @@ html[lang="ta"] .logo em{white-space:nowrap}
 .hero-copy{min-width:0}
 .hero h1{min-width:0;max-width:100%}
 @media (max-width:340px){
- html[lang="ta"] .logo em{white-space:normal;font-size:1rem}
+ html[lang="ta"] .logo em{white-space:normal}
  .logo i{width:32px;height:32px}
  .lang button{min-width:40px;padding:.3rem .55rem}
 }
@@ -228,6 +228,23 @@ html[lang="ta"] .logo em{white-space:nowrap}
 @supports (height:100lvh){#zodiac-bg{height:100lvh}.zodiac-overlay{bottom:auto;height:100lvh}}
 /* Tamil name below the photo on phones: smaller */
 @media (max-width:600px){html[lang="ta"] .hero h1 .nm-ta{font-size:clamp(1.5rem,8vw,2.2rem)}}
+/* Phones: floating contact bar lifted clear of the bottom-right corner (hosting badges, e.g. Netlify).
+  --badge-safe = free space left under the bar. Set it to 0px if no badge appears on your live site. */
+:root{--badge-safe:60px}
+@media (max-width:760px){
+ body{padding-bottom:calc(58px + var(--badge-safe) + 14px + env(safe-area-inset-bottom,0px))}
+ .callbar{inset:auto 12px calc(var(--badge-safe) + env(safe-area-inset-bottom,0px)) 12px;padding-bottom:0;border-radius:16px;overflow:hidden;background:transparent;box-shadow:0 12px 30px -8px rgba(0,0,0,.75),0 0 0 1px rgba(217,178,106,.55)}
+}
+
+/* =====================================================================
+  TAMIL NAME IN THE TOP BAR (left of the EN | தமிழ் toggle) - PHONE ONLY
+  To change its size, edit ONLY the number on the next line.
+  Laptop and the English version are not affected.
+  ===================================================================== */
+:root{--ta-nav-name-size:1.05rem}
+@media (max-width:760px){
+ html[lang="ta"] .logo em{font-size:var(--ta-nav-name-size)}
+}
 </style>
 </head>
 <body>
