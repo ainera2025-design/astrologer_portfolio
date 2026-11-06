@@ -228,13 +228,6 @@ html[lang="ta"] .logo em{white-space:nowrap}
 @supports (height:100lvh){#zodiac-bg{height:100lvh}.zodiac-overlay{bottom:auto;height:100lvh}}
 /* Tamil name below the photo on phones: smaller */
 @media (max-width:600px){html[lang="ta"] .hero h1 .nm-ta{font-size:clamp(1.5rem,8vw,2.2rem)}}
-/* Phones: floating contact bar lifted clear of the bottom-right corner (hosting badges, e.g. Netlify).
-  --badge-safe = free space left under the bar. Set it to 0px if no badge appears on your live site. */
-:root{--badge-safe:60px}
-@media (max-width:760px){
- body{padding-bottom:calc(58px + var(--badge-safe) + 14px + env(safe-area-inset-bottom,0px))}
- .callbar{inset:auto 12px calc(var(--badge-safe) + env(safe-area-inset-bottom,0px)) 12px;padding-bottom:0;border-radius:16px;overflow:hidden;background:transparent;box-shadow:0 12px 30px -8px rgba(0,0,0,.75),0 0 0 1px rgba(217,178,106,.55)}
-}
 </style>
 </head>
 <body>
