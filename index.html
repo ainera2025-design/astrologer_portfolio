@@ -237,13 +237,22 @@ html[lang="ta"] .logo em{white-space:nowrap}
 }
 
 /* =====================================================================
-  TAMIL NAME IN THE TOP BAR (left of the EN | தமிழ் toggle) - PHONE ONLY
-  To change its size, edit ONLY the number on the next line.
-  Laptop and the English version are not affected.
+  TOP BAR SIZES - PHONE ONLY (screens up to 760px wide)
+  Edit only the numbers in the three lines below.
+  Laptop/tablet (761px and up) is not affected.
   ===================================================================== */
-:root{--ta-nav-name-size:1.05rem}
+:root{
+ --ta-nav-name-size:0.9rem;   /* Tamil name, left of the toggle (Tamil version only) */
+ --nav-toggle-height:34px;    /* height of the EN | தமிழ் buttons */
+ --nav-toggle-font:0.85rem;   /* text size inside the EN | தமிழ் buttons */
+}
 @media (max-width:760px){
  html[lang="ta"] .logo em{font-size:var(--ta-nav-name-size)}
+ .lang{padding:2px}
+ .lang button{min-height:var(--nav-toggle-height);min-width:40px;padding:.2rem .7rem;font-size:var(--nav-toggle-font)}
+}
+@media (max-width:340px){
+ .lang button{min-width:36px;padding:.2rem .5rem}
 }
 </style>
 </head>
