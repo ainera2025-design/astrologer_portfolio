@@ -223,6 +223,11 @@ html[lang="ta"] .logo em{white-space:nowrap}
  .logo i{width:32px;height:32px}
  .lang button{min-width:40px;padding:.3rem .55rem}
 }
+/* steady background while scrolling on phones */
+#zodiac-bg{will-change:transform;transform:translateZ(0)}
+@supports (height:100lvh){#zodiac-bg{height:100lvh}.zodiac-overlay{bottom:auto;height:100lvh}}
+/* Tamil name below the photo on phones: smaller */
+@media (max-width:600px){html[lang="ta"] .hero h1 .nm-ta{font-size:clamp(1.5rem,8vw,2.2rem)}}
 </style>
 </head>
 <body>
@@ -952,8 +957,17 @@ document.getElementById("y").textContent = new Date().getFullYear();
  layout(true); start();
  window.zodiacRelabel = () => { buildWheel(); buildShimmer(); if (motion.matches) draw(0); };
 
- let rt;
- addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { layout(false); if (motion.matches) draw(0); }, 150); });
+ let rt, lastW = innerWidth, lastH = innerHeight;
+ addEventListener("resize", () => {
+   clearTimeout(rt);
+   rt = setTimeout(() => {
+     /* Mobile browsers fire "resize" while scrolling (address bar hides/shows). Ignore small
+        height-only changes so the wheel stays perfectly still; rebuild on real resizes/rotation. */
+     if (Math.abs(innerWidth - lastW) < 2 && Math.abs(innerHeight - lastH) < 160) return;
+     lastW = innerWidth; lastH = innerHeight;
+     layout(false); if (motion.matches) draw(0);
+   }, 150);
+ });
  motion.addEventListener ? motion.addEventListener("change", start) : motion.addListener(start);
  // redraw the wheel once the web fonts have arrived
  if (document.fonts && document.fonts.load) {
